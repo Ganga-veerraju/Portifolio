@@ -267,10 +267,14 @@ footer span{font-size:13px;color:var(--teal);font-weight:500}
       <p class="hero-desc">4+ years crafting scalable data solutions, optimizing pipelines, and building cloud infrastructure that powers business intelligence.</p>
       <div class="btns">
         <a href="#projects" class="btn-fill">View My Work</a>
-        <a href="mailto:veerraju2016@gmail.com" class="btn-out">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Resume
-        </a>
+        <a href="#" class="btn-out" onclick="openResume(event)">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  View Resume
+</a>
       </div>
       <div class="socials">
         <a href="https://linkedin.com/in/ganga-veerraju-korumilli" target="_blank" class="soc">
@@ -622,6 +626,24 @@ footer span{font-size:13px;color:var(--teal);font-weight:500}
 </footer>
 
 <script>
+function openResume(e){
+  e.preventDefault();
+  const modal = document.getElementById('resumeModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResume(){
+  const modal = document.getElementById('resumeModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+window.addEventListener('click', function(e){
+  const modal = document.getElementById('resumeModal');
+  if(e.target === modal){
+    closeResume();
+  }
+});
 const links = document.querySelectorAll('.nav-links a');
 const ids = ['home','about','experience','projects','skills','certifications','education','beyond','contact'];
 window.addEventListener('scroll',()=>{
@@ -646,5 +668,54 @@ links.forEach(a=>{
   });
 });
 </script>
+<div id="resumeModal" style="
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.75);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+">
+
+  <div style="
+    width:65%;
+    height:75%;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    display:flex;
+    flex-direction:column;
+  ">
+
+    <!-- HEADER (like screenshot) -->
+    <div style="
+      height:50px;
+      background:#f5f5f5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 16px;
+      border-bottom:1px solid #ddd;
+      font-weight:600;
+    ">
+      <span>Resume Preview</span>
+      <span onclick="closeResume()" style="
+        cursor:pointer;
+        font-size:20px;
+      ">✕</span>
+    </div>
+
+    <!-- PDF VIEW -->
+    <iframe src="Ganga_VeeraRaju_Data_Engineer.pdf" style="
+      flex:1;
+      width:100%;
+      border:none;
+    "></iframe>
+
+  </div>
+</div>
 </body>
 </html>
