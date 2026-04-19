@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganga Veerraju Korumilli – Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0b1a30;
+  --navy2:#0e2040;
+  --navy3:#17305a;
+  --teal:#2ec4b6;
+  --teal-dim:rgba(46,196,182,0.15);
+  --teal-border:rgba(46,196,182,0.3);
+  --white:#ffffff;
+  --sec1:#ffffff;
+  --sec2:#f0f5ff;
+  --sec3:#e6eef9;
+  --sec4:#f7f9fc;
+  --dark:#1a2332;
+  --gray:#5a6a82;
+  --gray-lt:#8a9ab5;
+  --border:#dae3f0;
+  --border2:#c5d3e8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.6;background:var(--white)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(11,26,48,0.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(46,196,182,0.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:64px;
+}
+.nav-logo{font-size:18px;font-weight:800;color:#fff;letter-spacing:1px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13.5px;font-weight:500;color:rgba(255,255,255,0.65);transition:.2s;padding-bottom:3px;letter-spacing:0.2px}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-links a.active{border-bottom:2px solid var(--teal)}
+
+/* ── HERO ── */
+#home{
+  min-height:100vh;
+  background:linear-gradient(150deg,#0b1a30 0%,#0d2248 55%,#0b1a30 100%);
+  display:flex;align-items:center;
+  padding:120px 64px 80px;position:relative;overflow:hidden;
+}
+.dot{position:absolute;border-radius:50%;background:rgba(46,196,182,0.25);pointer-events:none}
+.hero-inner{display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-photo{flex-shrink:0;width:270px;height:270px;border-radius:50%;border:4px solid var(--teal);background:rgba(46,196,182,0.08);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:52px;font-weight:900;letter-spacing:-2px}
+.hero-name{font-size:54px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:2px;line-height:1.08;margin-bottom:14px}
+.hero-sub{font-size:17px;font-weight:600;color:var(--teal);margin-bottom:14px}
+.hero-desc{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;max-width:520px;margin-bottom:30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.btn-fill{background:var(--teal);color:var(--navy);padding:12px 30px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.4px;transition:.2s;border:2px solid var(--teal)}
+.btn-fill:hover{opacity:.9;transform:translateY(-2px)}
+.btn-out{background:transparent;color:#fff;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:.2s;display:flex;align-items:center;gap:7px}
+.btn-out:hover{border-color:#fff;transform:translateY(-2px)}
+.socials{display:flex;gap:14px}
+.soc{width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:.2s}
+.soc:hover{border-color:var(--teal);color:var(--teal)}
+.soc svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── SECTION SHELL ── */
+.sec{padding:88px 64px}
+.sec-1{background:var(--sec1)}           /* pure white */
+.sec-2{background:var(--sec2)}           /* very light blue */
+.sec-3{background:var(--navy)}           /* dark navy */
+.sec-4{background:var(--sec3)}           /* soft periwinkle */
+.sec-5{background:var(--sec4)}           /* off-white */
+.sec-6{background:var(--navy2)}          /* mid navy */
+
+.inn{max-width:1160px;margin:0 auto}
+
+/* ── SECTION HEADER — always centered ── */
+.sec-hd{text-align:center;margin-bottom:56px}
+.sec-hd h2{font-size:38px;font-weight:900;color:var(--dark);margin-bottom:14px}
+.sec-hd h2.white{color:#fff}
+.sec-hd .bar{width:60px;height:3px;background:var(--teal);border-radius:2px;margin:0 auto 0}
+.sec-hd .sub{font-size:15px;color:var(--gray-lt);margin-top:14px}
+.sec-hd .sub.white{color:rgba(255,255,255,.55)}
+
+/* ── ABOUT ── */
+.about-body{max-width:780px;margin:0 auto;text-align:center}
+.about-body p{font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:14px}
+.about-loc{display:inline-flex;align-items:center;gap:6px;color:var(--teal);font-size:14px;font-weight:600;margin-top:16px}
+
+/* ── PROFESSIONAL JOURNEY TIMELINE ── */
+.timeline{position:relative;max-width:1000px;margin:0 auto}
+
+/* the vertical centre spine */
+.timeline::before{
+  content:'';position:absolute;
+  left:50%;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--teal) 0%,rgba(46,196,182,.15) 100%);
+  transform:translateX(-50%);z-index:0;
+}
+
+.tl-row{
+  display:flex;
+  align-items:flex-start;
+  width:100%;
+  position:relative;
+  margin-bottom:52px;
+}
+
+/* ODD rows: card on LEFT, icon on spine */
+.tl-row.left{flex-direction:row}
+/* EVEN rows: card on RIGHT, icon on spine */
+.tl-row.right{flex-direction:row-reverse}
+
+/* Card side — takes up just under half the width */
+.tl-card-side{
+  width:calc(50% - 40px);
+  flex-shrink:0;
+}
+.tl-row.left .tl-card-side{padding-right:0}
+.tl-row.right .tl-card-side{padding-left:0}
+
+/* Horizontal connector line from card edge to icon */
+.tl-line-h{
+  flex:1;
+  height:2px;
+  background:var(--teal);
+  opacity:0.35;
+  align-self:flex-start;
+  margin-top:28px;          /* vertically align with icon centre */
+  position:relative;z-index:1;
+}
+
+/* Icon circle sits on the spine */
+.tl-icon-wrap{
+  width:80px;
+  flex-shrink:0;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding-top:8px;
+  position:relative;z-index:2;
+}
+.tl-icon{
+  width:46px;height:46px;border-radius:50%;
+  border:2px solid var(--teal);
+  background:var(--sec2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--teal);
+}
+.tl-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.tl-card{
+  background:#fff;border:1px solid var(--border2);
+  border-radius:12px;padding:22px 26px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.tl-date{color:var(--teal);font-size:12.5px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.tl-role{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:3px}
+.tl-co{font-size:13.5px;font-weight:600;color:var(--teal);margin-bottom:2px}
+.tl-loc{font-size:12px;color:var(--gray-lt);margin-bottom:14px}
+.tl-ul{list-style:none;padding:0}
+.tl-ul li{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:6px;padding-left:18px;position:relative}
+.tl-ul li::before{content:'✓';position:absolute;left:0;top:1px;color:var(--teal);font-weight:700;font-size:12px}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.proj-card{background:var(--navy3);border:1px solid rgba(46,196,182,.15);border-radius:12px;padding:30px;transition:.25s;display:flex;flex-direction:column}
+.proj-card:hover{border-color:var(--teal);transform:translateY(-4px)}
+.proj-ico{width:50px;height:50px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.proj-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tag{background:rgba(46,196,182,.12);color:var(--teal);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid rgba(46,196,182,.28)}
+.proj-desc{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:14px}
+.proj-ul{list-style:none;padding:0}
+.proj-ul li{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:6px;padding-left:16px;position:relative}
+.proj-ul li::before{content:'✓';position:absolute;left:0;top:1px;color:var(--teal);font-weight:700;font-size:12px}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{background:#fff;border:1px solid var(--border2);border-radius:12px;padding:26px;transition:.25s}
+.skill-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(46,196,182,.1)}
+.sk-ico{width:46px;height:46px;background:var(--teal-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.sk-ttl{font-size:14.5px;font-weight:700;color:var(--dark);margin-bottom:12px}
+.sk-items{display:flex;flex-wrap:wrap;gap:7px}
+.sk-tag{background:var(--sec3);border:1px solid var(--border);color:var(--gray);font-size:12px;font-weight:500;padding:5px 11px;border-radius:6px}
+
+/* ── CERTIFICATIONS ── */
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cert-card{background:#fff;border:1px solid var(--border2);border-radius:12px;padding:22px 24px;display:flex;align-items:flex-start;gap:16px;transition:.25s}
+.cert-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(46,196,182,.1)}
+.cert-ico{width:46px;height:46px;background:var(--teal-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.cert-ttl{font-size:14.5px;font-weight:700;color:var(--dark);margin-bottom:3px;line-height:1.35}
+.cert-org{font-size:12.5px;color:var(--teal);font-weight:600;margin-bottom:7px}
+.cert-note{font-size:12.5px;color:var(--gray);display:flex;align-items:flex-start;gap:5px}
+.cert-note::before{content:'✓';color:var(--teal);font-weight:700;font-size:12px;flex-shrink:0;padding-top:1px}
+
+/* ── BEYOND WORK ── */
+.beyond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bw-card{background:#fff;border:1px solid var(--border2);border-radius:12px;padding:28px 22px;text-align:center;transition:.25s}
+.bw-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(46,196,182,.1)}
+.bw-ico{width:52px;height:52px;background:var(--teal-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px}
+.bw-ttl{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.bw-desc{font-size:13px;color:var(--gray-lt);line-height:1.65}
+
+/* ── CONTACT ── */
+.ct-body{max-width:680px;margin:0 auto;text-align:center}
+.ct-cards{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:36px}
+.ct-card{background:rgba(46,196,182,.08);border:1px solid rgba(46,196,182,.22);border-radius:12px;padding:18px 28px;text-align:left;min-width:210px;transition:.2s;text-decoration:none;display:block}
+.ct-card:hover{border-color:var(--teal);background:rgba(46,196,182,.15);transform:translateY(-3px)}
+.ct-lbl{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.ct-val{font-size:14px;font-weight:600;color:#fff}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:24px 64px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(46,196,182,.12)}
+footer p{font-size:13px;color:rgba(255,255,255,.4)}
+footer span{font-size:13px;color:var(--teal);font-weight:500}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 20px}.nav-links{gap:14px}.nav-links a{font-size:12px}
+  .sec{padding:64px 20px}#home{padding:100px 20px 60px}
+  .hero-inner{flex-direction:column;gap:36px;text-align:center}
+  .hero-photo{width:200px;height:200px;font-size:40px}
+  .hero-name{font-size:34px}
+  .btns,.socials{justify-content:center}
+  .timeline::before{left:22px;transform:none}
+  .tl-row,.tl-row.left,.tl-row.right{flex-direction:column;padding-left:60px}
+  .tl-icon-wrap{position:absolute;left:-60px;top:0;padding-top:0}
+  .tl-line-h{display:none}
+  .tl-card-side{width:100%}
+  .proj-grid,.cert-grid,.cert-grid-3{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .beyond-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:6px;text-align:center;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">GVK</div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#beyond">Beyond Work</a></li>
+  </ul>
+</nav>
+
+<!-- ① HERO — dark navy -->
+<div id="home">
+  <div class="dot" style="width:7px;height:7px;top:14%;left:7%"></div>
+  <div class="dot" style="width:5px;height:5px;top:73%;left:5%"></div>
+  <div class="dot" style="width:6px;height:6px;top:26%;left:48%"></div>
+  <div class="dot" style="width:5px;height:5px;top:79%;left:57%"></div>
+  <div class="dot" style="width:7px;height:7px;top:13%;left:93%"></div>
+  <div class="dot" style="width:5px;height:5px;top:84%;left:87%"></div>
+  <div class="hero-inner">
+    <div class="hero-photo">GVK</div>
+    <div style="flex:1">
+      <h1 class="hero-name">GANGA VEERRAJU<br>KORUMILLI</h1>
+      <p class="hero-sub">Data Engineer | Building Scalable Pipelines &amp; Cloud Infrastructure</p>
+      <p class="hero-desc">4+ years crafting scalable data solutions, optimizing pipelines, and building cloud infrastructure that powers business intelligence.</p>
+      <div class="btns">
+        <a href="#projects" class="btn-fill">View My Work</a>
+        <a href="mailto:veerraju2016@gmail.com" class="btn-out">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+      <div class="socials">
+        <a href="https://linkedin.com/in/ganga-veerraju-korumilli" target="_blank" class="soc">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Ganga-veerraju" target="_blank"class="soc">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="mailto:veerraju2016@gmail.com" class="soc">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ② ABOUT — pure white -->
+<div class="sec sec-1" id="about">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2>About Me</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="about-body">
+      <p>Data Engineer with 4+ years of experience delivering end-to-end data solutions — from problem understanding to production-ready systems. Strong expertise in Python, SQL, PySpark, and AWS-based data workflows.</p>
+      <p>Experienced in building scalable data pipelines and operationalising data for analytics use cases. Proven ability to deliver actionable insights through dashboards and automated reports, while collaborating with cross-functional teams.</p>
+      <p>Currently serving as Data Governance Specialist at Pegasystems in Bengaluru, Karnataka.</p>
+      <div class="about-loc">● Currently based in Bengaluru | Willing to relocate anywhere</div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ EXPERIENCE — light blue (#f0f5ff) -->
+<div class="sec sec-2" id="experience">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2>Professional Journey</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="timeline">
+
+      <!-- ROW 1 — card LEFT -->
+      <div class="tl-row left">
+        <div class="tl-card-side">
+          <div class="tl-card">
+            <div class="tl-date">Apr 2026 – Present</div>
+            <div class="tl-role">Data Governance Specialist</div>
+            <div class="tl-co">Pegasystems</div>
+            <div class="tl-loc">Bengaluru, Karnataka, India</div>
+          </div>
+        </div>
+        <div class="tl-line-h"></div>
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="tl-line-h" style="opacity:0;pointer-events:none"></div>
+        <div class="tl-card-side" style="visibility:hidden"></div>
+      </div>
+
+      <!-- ROW 2 — card RIGHT -->
+      <div class="tl-row right">
+        <div class="tl-card-side">
+          <div class="tl-card">
+            <div class="tl-date">Aug 2021 – Oct 2025</div>
+            <div class="tl-role">Data Analyst / Python &amp; ML Engineer</div>
+            <div class="tl-co">Wipro</div>
+            <div class="tl-loc">Hyderabad, Telangana, India</div>
+            <ul class="tl-ul">
+              <li>Designed and automated Python-based ETL pipelines for data extraction, transformation, validation and reporting</li>
+              <li>Built ML models (classification, clustering) using Scikit-Learn for analytical and operational use cases</li>
+              <li>Developed large-scale PySpark pipelines enabling efficient transformation of high-volume datasets</li>
+              <li>Created Power BI dashboards and KPI-based reports to support data-driven business decisions</li>
+              <li>Built and managed ETL jobs using AWS Glue for data ingestion, transformation, and orchestration</li>
+              <li>Leveraged Databricks for scalable data pipeline development and large-scale Spark processing</li>
+              <li>Developed a secure Streamlit analytics platform to share ML results with controlled user access</li>
+              <li>Hands-on experience with Amazon Redshift for data storage, processing, and analytics</li>
+              <li>Contributed to statistical analysis for evaluating business improvements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-line-h"></div>
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+        </div>
+        <div class="tl-line-h" style="opacity:0;pointer-events:none"></div>
+        <div class="tl-card-side" style="visibility:hidden"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ④ PROJECTS — dark navy -->
+<div class="sec sec-3" id="projects">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="white">Featured Projects</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-ico">📊</div>
+        <div class="proj-title">Optimized Printer Maintenance Solution</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">ML</span>
+          <span class="tag">Clustering</span><span class="tag">Association Rules</span>
+          <span class="tag">Power BI</span><span class="tag">ETL</span>
+        </div>
+        <div class="proj-desc">Predictive maintenance solution using association rule mining and clustering to identify multi-part failure patterns and reduce repeat service cycles.</div>
+        <ul class="proj-ul">
+          <li>Association Rule Mining for multi-part failure pattern detection</li>
+          <li>K-means clustering for failure mode grouping</li>
+          <li>End-to-end ML workflow: ETL → evaluation → model → dashboard</li>
+          <li>Delivered measurable cost savings and improved maintenance efficiency</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <div class="proj-ico">⚡</div>
+        <div class="proj-title">Enterprise ETL Pipeline Automation</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PySpark</span>
+          <span class="tag">AWS Glue</span><span class="tag">Databricks</span>
+          <span class="tag">Redshift</span>
+        </div>
+        <div class="proj-desc">Built scalable ETL pipelines processing high-volume datasets with automated validation, quality checks, and orchestration on AWS cloud.</div>
+        <ul class="proj-ul">
+          <li>Python-based extraction from multiple data sources</li>
+          <li>PySpark transformation pipelines at scale</li>
+          <li>AWS Glue orchestration and job scheduling</li>
+          <li>Amazon Redshift as the analytics data warehouse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ SKILLS — soft periwinkle (#e6eef9) -->
+<div class="sec sec-4" id="skills">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2>Technical Expertise</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="sk-ico">💻</div>
+        <div class="sk-ttl">Languages</div>
+        <div class="sk-items">
+          <span class="sk-tag">Python</span>
+          <span class="sk-tag">SQL</span>
+          <span class="sk-tag">Shell</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-ico">📊</div>
+        <div class="sk-ttl">Data &amp; ML Libraries</div>
+        <div class="sk-items">
+          <span class="sk-tag">PySpark</span>
+          <span class="sk-tag">Pandas</span>
+          <span class="sk-tag">NumPy</span>
+          <span class="sk-tag">Scikit-Learn</span>
+          <span class="sk-tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-ico">🤖</div>
+        <div class="sk-ttl">ML Techniques</div>
+        <div class="sk-items">
+          <span class="sk-tag">Regression</span>
+          <span class="sk-tag">Classification</span>
+          <span class="sk-tag">Clustering</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-ico">☁️</div>
+        <div class="sk-ttl">Cloud – AWS</div>
+        <div class="sk-items">
+          <span class="sk-tag">S3</span>
+          <span class="sk-tag">Lambda</span>
+          <span class="sk-tag">EC2</span>
+          <span class="sk-tag">Redshift</span>
+          <span class="sk-tag">Glue</span>
+          <span class="sk-tag">Databricks</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-ico">🗄️</div>
+        <div class="sk-ttl">Databases &amp; BI</div>
+        <div class="sk-items">
+          <span class="sk-tag">MySQL</span>
+          <span class="sk-tag">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-ico">🛠️</div>
+        <div class="sk-ttl">Dev Tools</div>
+        <div class="sk-items">
+          <span class="sk-tag">Git</span>
+          <span class="sk-tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ CERTIFICATIONS — off-white (#f7f9fc) -->
+<div class="sec sec-5" id="certifications">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2>Certifications</h2>
+      <div class="bar"></div>
+      <p class="sub">Continuously expanding expertise through industry-recognised certifications</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-ico">☁️</div>
+        <div>
+          <div class="cert-ttl">AWS Certified Cloud Practitioner</div>
+          <div class="cert-org">Amazon Web Services</div>
+          <div class="cert-note">Cloud architecture and deployment expertise</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-ico">🐍</div>
+        <div>
+          <div class="cert-ttl">MTA: Introduction to Programming Using Python</div>
+          <div class="cert-org">Microsoft — Certified 2019</div>
+          <div class="cert-note">Python programming fundamentals</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-ico">📈</div>
+        <div>
+          <div class="cert-ttl">Applied Data Science Specialization</div>
+          <div class="cert-org">IBM / Coursera</div>
+          <div class="cert-note">Data science tools and machine learning techniques</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-ico">🤖</div>
+        <div>
+          <div class="cert-ttl">AI For Everyone</div>
+          <div class="cert-org">DeepLearning.AI</div>
+          <div class="cert-note">AI concepts, strategy, and business applications</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-ico">🔷</div>
+        <div>
+          <div class="cert-ttl">Microsoft Certified: Azure Fundamentals</div>
+          <div class="cert-org">Microsoft</div>
+          <div class="cert-note">Core Azure cloud concepts and services</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-ico">💡</div>
+        <div>
+          <div class="cert-ttl">Python for Data Science</div>
+          <div class="cert-org">IBM</div>
+          <div class="cert-note">Python data analysis and visualisation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ EDUCATION — mid navy -->
+<div class="sec sec-6" id="education">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="white">Education</h2>
+      <div class="bar"></div>
+    </div>
+    <div style="max-width:700px;margin:0 auto">
+      <div class="cert-card" style="background:rgba(255,255,255,0.07);border:1px solid rgba(46,196,182,0.22)">
+        <div class="cert-ico">🎓</div>
+        <div>
+          <div class="cert-ttl" style="color:#fff">B.Tech – Electronics &amp; Communications Engineering</div>
+          <div class="cert-org">Aditya College of Engineering, Surampalem, Andhra Pradesh</div>
+          <div class="cert-note" style="color:rgba(255,255,255,0.6)">June 2017 – July 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑧ BEYOND WORK — soft periwinkle -->
+<div class="sec sec-4" id="beyond">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2>Beyond Work</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="beyond-grid">
+      <div class="bw-card">
+        <div class="bw-ico">📊</div>
+        <div class="bw-ttl">Data Enthusiast</div>
+        <div class="bw-desc">Always exploring new datasets, tools, and techniques to stay sharp in the data engineering space.</div>
+      </div>
+      <div class="bw-card">
+        <div class="bw-ico">☁️</div>
+        <div class="bw-ttl">Cloud Explorer</div>
+        <div class="bw-desc">Continuously learning new AWS and cloud services to build more robust, scalable architectures.</div>
+      </div>
+      <div class="bw-card">
+        <div class="bw-ico">🤝</div>
+        <div class="bw-ttl">Social Media Promoter</div>
+        <div class="bw-desc">Active in sharing knowledge and connecting with the data engineering community online.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑨ CONTACT — dark navy -->
+<div class="sec sec-3" id="contact">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="white">Get In Touch</h2>
+      <div class="bar"></div>
+      <p class="sub white">Open to new opportunities, collaborations, and conversations about data engineering.</p>
+    </div>
+    <div class="ct-body">
+      <div class="ct-cards">
+        <a href="mailto:veerraju2016@gmail.com" class="ct-card">
+          <div class="ct-lbl">Email</div>
+          <div class="ct-val">veerraju2016@gmail.com</div>
+        </a>
+        <a href="https://linkedin.com/in/ganga-veerraju-korumilli" target="_blank" class="ct-card">
+          <div class="ct-lbl">LinkedIn</div>
+          <div class="ct-val">ganga-veerraju-korumilli</div>
+        </a>
+        <a href="tel:+917095309184" class="ct-card">
+          <div class="ct-lbl">Phone</div>
+          <div class="ct-val">+91 70953 09184</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Ganga Veerraju Korumilli · Bengaluru, India</p>
+  <span>Data Engineer</span>
+</footer>
+
+<script>
+const links = document.querySelectorAll('.nav-links a');
+const ids = ['home','about','experience','projects','skills','certifications','education','beyond','contact'];
+window.addEventListener('scroll',()=>{
+  let cur='home';
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop-90) cur=id;
+  });
+  links.forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+cur) a.classList.add('active');
+  });
+});
+links.forEach(a=>{
+  a.addEventListener('click',e=>{
+    const h=a.getAttribute('href');
+    if(h&&h.startsWith('#')){
+      e.preventDefault();
+      const el=document.querySelector(h);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>
